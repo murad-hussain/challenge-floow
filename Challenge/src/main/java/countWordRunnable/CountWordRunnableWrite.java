@@ -45,10 +45,10 @@ public class CountWordRunnableWrite implements Runnable{
 		toPrint.entrySet().stream().forEach(entry -> {
 			Map.Entry<String, Long> input = new MyEntry<String, Long>(entry.getKey(), entry.getValue());
 			accessPointWrite.writeLine(input); // writing to a file just for verifying if the program works
-//			entity.setId("_id");
-//			entity.setWord(entry.getKey());
-//			entity.setCount(entry.getValue());
-//			accessPointWrite.writeToDB(entity);
+			entity.setId("_id");
+			entity.setWord(entry.getKey());
+			entity.setCount(entry.getValue());
+			accessPointWrite.writeToDB(entity);
 		});
 
 		LOGGER.info("Ending write...");

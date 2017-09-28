@@ -42,15 +42,15 @@ private static String DIRECTORY = "src" + File.separator;
         FileReader fRead = new FileReader(fToRead);
         FileWriter fWrite = new FileWriter(fToWrite);
 
-//		ApplicationContext ctx =
-//				new AnnotationConfigApplicationContext(SpringMongoConfig.class);
-//		MongoOperations mongoOperation =
-//				(MongoOperations) ctx.getBean("mongoTemplate");
+		ApplicationContext ctx =
+				new AnnotationConfigApplicationContext(SpringMongoConfig.class);
+		MongoOperations mongoOperation =
+				(MongoOperations) ctx.getBean("mongoTemplate");
 
 
         CountWordFileReadDAO accessPointRead = new CountWordFileReadDAO(fRead);
-//		CountWordFileWriteDAO accessPointWrite = new CountWordFileWriteDAO(fWrite, mongoOperation);
-        CountWordFileWriteDAO accessPointWrite = new CountWordFileWriteDAO(fWrite);
+		CountWordFileWriteDAO accessPointWrite = new CountWordFileWriteDAO(fWrite, mongoOperation);
+//        CountWordFileWriteDAO accessPointWrite = new CountWordFileWriteDAO(fWrite);
         BlockingQueue<List<String>> queue = new LinkedBlockingQueue<>();
         BlockingQueue<List<String>> queueToPrint = new LinkedBlockingQueue<>();
         AtomicInteger threadNumber = new AtomicInteger(0);
@@ -84,9 +84,9 @@ private static String DIRECTORY = "src" + File.separator;
             e.printStackTrace();
         }
 
-//		Entity leastCommonWord = mongoOperation.findOne(
-//				new Query(Criteria.where("count").is(1)), Entity.class);
-//		System.out.println(leastCommonWord);
+		Entity leastCommonWord = mongoOperation.findOne(
+				new Query(Criteria.where("count").is(1)), Entity.class);
+		System.out.println(leastCommonWord);
 
     }
 

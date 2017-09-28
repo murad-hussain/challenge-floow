@@ -17,10 +17,10 @@ public class CountWordFileWriteDAO implements CountWordWriteDAO, Runnable {
 	private MongoOperations mongoOperations;
 	
 	
-//	public CountWordFileWriteDAO(FileWriter fw, MongoOperations mongoOperations) {
-//		this.bw = new BufferedWriter(fw);
-//		this.mongoOperations = mongoOperations;
-//	}
+	public CountWordFileWriteDAO(FileWriter fw, MongoOperations mongoOperations) {
+		this.bw = new BufferedWriter(fw);
+		this.mongoOperations = mongoOperations;
+	}
 
 	public CountWordFileWriteDAO(FileWriter fw ) {
 		this.bw = new BufferedWriter(fw);
@@ -39,10 +39,10 @@ public class CountWordFileWriteDAO implements CountWordWriteDAO, Runnable {
 	}
 
 
-//	@Override
-//	public void writeToDB(Entity entity) {
-//		mongoOperations.save(entity);
-//	}
+	@Override
+	public void writeToDB(Entity entity) {
+		mongoOperations.save(entity);
+	}
 
 
 	public void run() {
