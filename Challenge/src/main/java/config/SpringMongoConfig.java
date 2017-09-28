@@ -6,16 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import com.mongodb.MongoClient;
 
-import java.net.UnknownHostException;
-
 /**
  * Spring MongoDB configuration file
  */
 @Configuration
 public class SpringMongoConfig {
-
-    public SpringMongoConfig() {
-    }
 
     public
     @Bean
@@ -28,7 +23,7 @@ public class SpringMongoConfig {
 
 //        MongoDatabase database = mongoClient.getDatabase("test");
 
-        MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, "db"); // default db path
+        MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, "test"); // default db path
         return mongoTemplate;
 
     }
